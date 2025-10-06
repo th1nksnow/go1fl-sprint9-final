@@ -20,12 +20,12 @@ func generateRandomElements(size int) []int {
 	if size <= 0 {
 		return nil
 	}
-	randSlice := make([]int, size)
+	data := make([]int, size)
 	rnd := rand.New(rand.NewSource(time.Now().Unix()))
 	for i := range size {
-		randSlice[i] = rnd.Int()
+		data[i] = rnd.Int()
 	}
-	return randSlice
+	return data
 }
 
 // maximum returns the maximum number of elements.
@@ -58,12 +58,12 @@ func maximum(data []int) int {
 func main() {
 	fmt.Printf("Генерируем %d целых чисел\n", SIZE)
 	// ваш код здесь
-	randSlice := generateRandomElements(SIZE)
+	data := generateRandomElements(SIZE)
 
 	fmt.Println("Ищем максимальное значение в один поток")
 	// // ваш код здесь
 	start := time.Now()
-	max := maximum(randSlice)
+	max := maximum(data)
 	elapsed := time.Since(start).Microseconds()
 	fmt.Printf("Максимальное значение элемента: %d\nВремя поиска: %d мкс\n", max, elapsed)
 
