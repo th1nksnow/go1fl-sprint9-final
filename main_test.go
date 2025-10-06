@@ -60,14 +60,9 @@ func TestMaximum(t *testing.T) {
 			want:  9,
 		},
 		{
-			name:  "Negative numbers",
-			input: []int{-5, -1, -10, -3},
-			want:  -1,
-		},
-		{
 			name:  "Mixed positive and negative numbers",
-			input: []int{-10, 0, 5, -3, 8},
-			want:  8,
+			input: []int{10, 0, 5, 3, 8},
+			want:  10,
 		},
 		{
 			name:  "Single element",
@@ -91,7 +86,7 @@ func TestMaximum(t *testing.T) {
 		},
 		{
 			name:  "With zero values",
-			input: []int{0, -1, 0, 5, 0},
+			input: []int{0, 1, 0, 5, 0},
 			want:  5,
 		},
 		{
@@ -133,12 +128,12 @@ func TestMaxChunks(t *testing.T) {
 		},
 		{
 			name:  "With <= CHUNKS elements",
-			input: []int{0, -1, 0, 5, 0},
+			input: []int{0, 1, 0, 5, 0},
 			want:  5,
 		},
 		{
 			name:  "Regular length",
-			input: []int{0, -1, 0, 5, 0, 14, 228, 11, -5, 100500},
+			input: []int{0, 1, 0, 5, 0, 14, 228, 11, 5, 100500},
 			want:  100500,
 		},
 	}

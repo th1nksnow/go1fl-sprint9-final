@@ -14,9 +14,6 @@ const (
 
 // generateRandomElements generates random elements.
 func generateRandomElements(size int) []int {
-	if size == 0 {
-		return []int{}
-	}
 	if size <= 0 {
 		return nil
 	}
@@ -30,9 +27,6 @@ func generateRandomElements(size int) []int {
 
 // maximum returns the maximum number of elements.
 func maximum(data []int) int {
-	if data == nil {
-		return 0
-	}
 	if len(data) == 0 {
 		return 0
 	}
@@ -51,16 +45,13 @@ func maximum(data []int) int {
 
 // maxChunks returns the maximum number of elements in a chunks.
 func maxChunks(data []int) int {
-	if data == nil {
-		return 0
-	}
 	if len(data) == 0 {
 		return 0
 	}
 	if len(data) == 1 {
 		return data[0]
 	}
-	if len(data) <= CHUNKS {
+	if len(data) < CHUNKS {
 		return maximum(data)
 	}
 
