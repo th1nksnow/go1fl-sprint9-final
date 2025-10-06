@@ -1,4 +1,4 @@
-module github.com/th1nksnow/sprint9-final
+module github.com/th1nksnow/go1fl-sprint9-final
 
 go 1.24.1
 
