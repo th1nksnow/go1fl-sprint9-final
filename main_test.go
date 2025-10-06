@@ -109,3 +109,45 @@ func TestMaximum(t *testing.T) {
 		})
 	}
 }
+
+func TestMaxChunks(t *testing.T) {
+	tests := []struct {
+		name  string
+		input []int
+		want  int
+	}{
+		{
+			name:  "Single element",
+			input: []int{42},
+			want:  42,
+		},
+		{
+			name:  "Empty slice",
+			input: []int{},
+			want:  0,
+		},
+		{
+			name:  "Nil slice",
+			input: nil,
+			want:  0,
+		},
+		{
+			name:  "With <= CHUNKS elements",
+			input: []int{0, -1, 0, 5, 0},
+			want:  5,
+		},
+		{
+			name:  "Regular length",
+			input: []int{0, -1, 0, 5, 0, 14, 228, 11, -5, 100500},
+			want:  100500,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := maximum(tt.input)
+
+			assert.Equal(t, tt.want, result)
+		})
+	}
+}
